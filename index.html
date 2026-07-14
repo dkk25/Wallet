@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Wallet App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="wallet-container">
+
+        <header>
+            <h1>Το Πορτοφόλι μου</h1>
+            <div class="balance-card">
+                <small>ΔΙΑΘΕΣΙΜΟ ΥΠΟΛΟΙΠΟ</small>
+                <h2 id="total-balance">0.00 €</h2>
+            </div>
+        </header>
+
+        <div class="stats-container">
+            <div class="stat-box income-box">
+                <span>Έσοδα</span>
+                <p id="total-income">+0.00 €</p>
+            </div>
+            <div class="stat-box expense-box">
+                <span>Έξοδα</span>
+                <p id="total-expense">-0.00 €</p>
+            </div>
+        </div>
+
+        <div id="ai-alert" class="ai-box hidden">
+            <p id="ai-message"></p>
+        </div>
+
+        <section class="action-section">
+            
+            <div class="main-buttons">
+                <button class="btn btn-income" onclick="openForm('income')">Προσθήκη Εσόδου</button>
+                <button class="btn btn-expense" onclick="openForm('expense')">Προσθήκη Εξόδου</button>
+            </div>
+
+            <div id="form-container" class="hidden-form">
+                <h3 id="form-title">Νέα Συναλλαγή</h3>
+                
+                <input type="text" id="description" placeholder="Περιγραφή (π.χ. Μισθός, Σούπερ Μάρκετ)">
+                <input type="number" id="amount" placeholder="Ποσό (€)">
+                
+                <button id="submit-btn" class="btn" onclick="processTransaction()">Καταχώρηση</button>
+            </div>
+            
+        </section>
+
+        <button class="btn next-month-btn" onclick="resetMonth()">📅 Επόμενος Μήνας</button>
+
+        <section class="history">
+            <h3>Ιστορικό Συναλλαγών</h3>
+            <ul id="transaction-list">
+            </ul>
+        </section>
+    </div>
+     
+    <script src="script.js"></script>
+</body>
+</html>
