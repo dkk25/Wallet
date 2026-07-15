@@ -51,13 +51,24 @@
             
         </section>
 
-        <button class="btn next-month-btn" onclick="resetMonth()">📅 Επόμενος Μήνας</button>
+        <button class="btn next-month-btn" onclick="openModal()">📅 Επόμενος Μήνας</button>
 
         <section class="history">
             <h3>Ιστορικό Συναλλαγών</h3>
             <ul id="transaction-list">
             </ul>
         </section>
+    </div>
+
+    <div id="custom-modal" class="modal-backdrop hidden">
+        <div class="modal-box">
+            <h3>Είσαι σίγουρος/η;</h3>
+            <p>Όλες οι συναλλαγές θα διαγραφούν, αλλά το υπόλοιπο του λογαριασμού σου θα παραμείνει.</p>
+            <div class="modal-buttons">
+                <button id="modal-confirm-btn" class="btn btn-confirm" onclick="confirmReset()">Ναι, σβήστα</button>
+                <button id="modal-cancel-btn" class="btn btn-cancel" onclick="closeModal()">Ακύρωση</button>
+            </div>
+        </div>
     </div>
      
     <script src="script.js"></script>

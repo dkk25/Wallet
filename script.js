@@ -30,17 +30,18 @@ function processTransaction() {
 
     const list = document.getElementById('transaction-list');
     const listItem = document.createElement('li');
+    const transactionDate = new Date().toLocaleString('el-GR', { dateStyle: 'short', timeStyle: 'short' });
 
     if (currentType === 'income') {
         totalIncome += amount;
         totalBalance += amount;
         listItem.className = 'income-item';
-        listItem.innerHTML = `${description} <span class="amount">+${amount.toFixed(2)} €</span>`;
+        listItem.innerHTML = `${description} <span class="amount">+${amount.toFixed(2)} €</span> <span class="transaction-date">${transactionDate}</span>`;
     } else {
         totalExpense += amount;
         totalBalance -= amount;
         listItem.className = 'expense-item';
-        listItem.innerHTML = `${description} <span class="amount">-${amount.toFixed(2)} €</span>`;
+        listItem.innerHTML = `${description} <span class="amount">-${amount.toFixed(2)} €</span> <span class="transaction-date">${transactionDate}</span>`;
     }
 
     list.prepend(listItem);
@@ -80,12 +81,20 @@ function updateDashboard() {
     }
 }
 
-function resetMonth() {
-    if (confirm("Είσαι σίγουρος ότι θέλεις να ξεκινήσεις έναν νέο μήνα; Όλες οι συναλλαγές θα διαγραφούν.")) {
-        totalIncome = 0.00;
-        totalExpense = 0.00;
-        document.getElementById('transaction-list').innerHTML = '';
-        updateDashboard();
-    }
+function openModal() {
+    const modal = document.getElementById('custom-modal');
+    modal.classList.remove('hidden');
+}
 
-}   
+function closeModal() {
+    const modal = document.getElementById('custom-modal');
+    modal.classList.add('hidden');
+}
+
+function confirmReset() {
+    totalIncome = 0.00;
+    totalExpense = 0.00;
+    document.getElementById('transaction-list').innerHTML = '';
+    updateDashboard();
+    closeModal();
+}
