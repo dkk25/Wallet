@@ -8,7 +8,7 @@ function openForm(type) {
 
     const formContainer = document.getElementById('form-container');
     const formTitle = document.getElementById('form-title');
-    const submitButton = document.getElementById('submit-button');
+    const submitButton = document.getElementById('submit-btn');
 
     formContainer.classList.remove('hidden-form');
     formTitle.textContent = type === 'income' ? 'Καταχώρηση Εσόδου' : 'Καταχώρηση Εξόδου';
