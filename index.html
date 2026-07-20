@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="wallet-container">
-
         <header>
             <h1>Το Πορτοφόλι μου</h1>
             <div class="balance-card">
@@ -34,7 +32,6 @@
         </div>
 
         <section class="action-section">
-            
             <div class="main-buttons">
                 <button class="btn btn-income" onclick="openForm('income')">Προσθήκη Εσόδου</button>
                 <button class="btn btn-expense" onclick="openForm('expense')">Προσθήκη Εξόδου</button>
@@ -43,30 +40,55 @@
             <div id="form-container" class="hidden-form">
                 <h3 id="form-title">Νέα Συναλλαγή</h3>
                 
-                <input type="text" id="description" placeholder="Περιγραφή (π.χ. Μισθός, Σούπερ Μάρκετ)">
+                <select id="category" class="category-dropdown"></select>
+                <p id="error-category" class="error-msg hidden">Παρακαλώ επιλέξτε κατηγορία.</p>
+                
+                <input type="text" id="description" placeholder="Σημείωση (Προαιρετικό, π.χ. ΔΕΗ)">
+                
                 <input type="number" id="amount" placeholder="Ποσό (€)">
+                <p id="error-amount" class="error-msg hidden">Παρακαλώ εισάγετε έγκυρο ποσό.</p>
                 
                 <button id="submit-btn" class="btn" onclick="processTransaction()">Καταχώρηση</button>
             </div>
-            
         </section>
-
-        <button class="btn next-month-btn" onclick="openModal()">📅 Επόμενος Μήνας</button>
 
         <section class="history">
             <h3>Ιστορικό Συναλλαγών</h3>
-            <ul id="transaction-list">
-            </ul>
+            <ul id="transaction-list"></ul>
         </section>
+
+        <button class="btn next-month-btn" onclick="openModal('custom-modal')">🔄 Χειροκίνητος Μηδενισμός</button>
     </div>
 
     <div id="custom-modal" class="modal-backdrop hidden">
         <div class="modal-box">
-            <h3>Είσαι σίγουρος/η;</h3>
-            <p>Όλες οι συναλλαγές θα διαγραφούν, αλλά το υπόλοιπο του λογαριασμού σου θα παραμείνει.</p>
+            <h3>Ολική Διαγραφή! ⚠️</h3>
+            <p>Όλες οι συναλλαγές, τα έσοδα, τα έξοδα και το Υπόλοιπό σου θα μηδενιστούν οριστικά. Είσαι σίγουρος/η;</p>
             <div class="modal-buttons">
-                <button id="modal-confirm-btn" class="btn btn-confirm" onclick="confirmReset()">Ναι, σβήστα</button>
-                <button id="modal-cancel-btn" class="btn btn-cancel" onclick="closeModal()">Ακύρωση</button>
+                <button class="btn btn-confirm" onclick="hardReset()">Ναι, σβήστα όλα</button>
+                <button class="btn btn-cancel" onclick="closeModal('custom-modal')">Ακύρωση</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="weekly-modal" class="modal-backdrop hidden">
+        <div class="modal-box">
+            <h3>Νέα Εβδομάδα! 📅</h3>
+            <p>Φαίνεται πως μπήκαμε σε νέα εβδομάδα. Θέλεις να μηδενίσουμε τα έσοδα/έξοδα της προηγούμενης για να ξεκινήσεις φρέσκος; (Το συνολικό υπόλοιπο μένει ως έχει).</p>
+            <div class="modal-buttons">
+                <button class="btn btn-confirm" onclick="confirmReset()">Ναι, μηδενισμός</button>
+                <button class="btn btn-cancel" onclick="closeModal('weekly-modal')">Όχι, άστα</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="delete-modal" class="modal-backdrop hidden">
+        <div class="modal-box">
+            <h3>Διαγραφή Συναλλαγής 🗑️</h3>
+            <p>Είσαι σίγουρος/η ότι θέλεις να διαγράψεις τη συγκεκριμένη συναλλαγή;</p>
+            <div class="modal-buttons">
+                <button class="btn btn-confirm" onclick="confirmDeleteTransaction()">Ναι, διέγραψέ τη</button>
+                <button class="btn btn-cancel" onclick="closeModal('delete-modal')">Ακύρωση</button>
             </div>
         </div>
     </div>
