@@ -232,7 +232,6 @@ function confirmReset() {
     updateDashboard();
 
     closeModal('weekly-modal');
-    closeModal('custom-modal');
 }
 
 function promptDeleteTransaction(id) {
