@@ -10,7 +10,7 @@ app.use(express.static('public'));
 
 app.use(express.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/financeApp')
+mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/financeApp')
    .then(() => {
         console.log('✅ Συνδεθήκαμε επιτυχώς στη MongoDB (financeApp)!');
     })
