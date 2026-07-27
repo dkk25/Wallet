@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Wallet - Σύνδεση</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="wallet-container">
+        <header>
+            <h1>Smart Wallet 💳</h1>
+            <p id="auth-title" class="auth-subtitle">
+                Συνδέσου για να διαχειριστείς τα οικονομικά σου.
+            </p>
+        </header>
+
+        <form id="auth-form" onsubmit="handleSubmit(event)">
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="π.χ. user@mail.com" required>
+            </div>
+
+            <div class="form-group">
+               <label for="password">Κωδικός Πρόσβασης:</label>
+               <div class="password-wrapper">
+                   <input type="password" id="password" placeholder="••••••••" minlength="8" required>
+                   <button type="button" id="toggle-password" class="eye-btn" onclick="togglePasswordVisibility()">
+                       <i id="eye-icon" class="fa-solid fa-eye"></i>
+                   </button>
+                </div>
+            </div>
+
+            <p id="message-box" class="message-box"></p>
+
+            <button type="submit" id="submit-btn" class="btn btn-income full-width">
+                Σύνδεση
+            </button>
+        </form>
+
+        <div class="auth-toggle-container">
+            <p id="toggle-text">Δεν έχεις λογαριασμό;</p>
+            <button id="toggle-btn" class="btn next-month-btn" onclick="toggleAuthMode()">
+                Δημιουργία Λογαριασμού
+            </button>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

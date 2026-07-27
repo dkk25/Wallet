@@ -29,6 +29,7 @@ header h1 { font-size: 1.5rem; font-weight: 400; color: var(--text-muted); margi
 .balance-card {
     background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%);
     padding: 25px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 25px;
 }
 .balance-card small { font-size: 0.75rem; letter-spacing: 1.5px; color: var(--text-muted); display: block; margin-bottom: 5px; }
 .balance-card h2 { font-size: 2.2rem; font-weight: 700; }
@@ -171,4 +172,145 @@ input[type=number] {
         width: 90%; 
         padding: 20px;
     }
+}
+
+.auth-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.full-width {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.auth-toggle-container {
+    text-align: center;
+    margin-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+.auth-toggle-container p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.auth-toggle-container button {
+    margin-top: 10px;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px; 
+}
+
+.eye-btn {
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted); 
+    font-size: 1.1rem;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.eye-btn:hover {
+    color: var(--text-main); 
+}
+
+.message-box {
+    min-height: 20px;       
+    margin: 10px 0;         
+    font-size: 14px;       
+    font-weight: 600;       
+    text-align: center;     
+    transition: 0.3s ease;  
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-top h1 {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.logout-icon-btn {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: var(--expense);
+    border-radius: 50%; 
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px; 
+    transition: all 0.2s ease;
+}
+
+.logout-icon-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+    transform: scale(1.05);
+}
+
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%); 
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    z-index: 9999; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.toast.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.toast.success { background-color: #10b981; } 
+.toast.error { background-color: #ef4444; } 
+
+.new-month-card {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    margin: 15px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff; 
 }
