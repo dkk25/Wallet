@@ -1,7 +1,7 @@
 const token = localStorage.getItem('token');
 
 if (!token) {
-    window.location.href = '/index.html';
+    window.location.replace = '/index.html';
 }
 
 const incomeCategories = [
@@ -106,7 +106,7 @@ async function loadData() {
             if (result.message && result.message.includes('token')) {
                 setTimeout(() => {
                     localStorage.removeItem('token');
-                    window.location.href = '/index.html';
+                    window.location.replace = '/index.html';
                 }, 2000);
             }
         }
@@ -252,7 +252,7 @@ async function processTransaction() {
             if (result.message && result.message.includes('token')) {
                 setTimeout(() => {
                     localStorage.removeItem('token');
-                    window.location.href = '/index.html';
+                    window.location.replace = '/index.html';
                 }, 2000);
             }
         }
@@ -303,7 +303,7 @@ function closeModal(modalId) {
 
 function confirmLogout() {
     localStorage.removeItem('token');
-    window.location.href = '/index.html';
+    window.location.replace = '/index.html';
 }
 
 function promptDeleteTransaction(id) {
@@ -348,7 +348,7 @@ async function confirmDeleteTransaction() {
                 if (result.message && result.message.includes('token')) {
                     setTimeout(() => {
                         localStorage.removeItem('token');
-                        window.location.href = '/index.html';
+                        window.location.replace = '/index.html';
                     }, 2000);
                 }
             }

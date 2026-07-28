@@ -1,7 +1,7 @@
 const token = localStorage.getItem('token');
 
 if (token) {
-    window.location.href ='/dashboard.html';
+    window.location.replace ='/dashboard.html';
 }
 
 let isLoginMode = true;
@@ -74,7 +74,7 @@ async function handleSubmit(event){
                 localStorage.setItem('token', data.token);
                 
                 setTimeout(() => {
-                    window.location.href = '/dashboard.html';
+                    window.location.replace = '/dashboard.html';
                 }, 1000);
             } else {
                 setTimeout(() => {
