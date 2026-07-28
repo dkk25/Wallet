@@ -1,3 +1,9 @@
+const token = localStorage.getItem('token');
+
+if (token) {
+    window.location.href ='/dashboard.html';
+}
+
 let isLoginMode = true;
 
 function toggleAuthMode(){
